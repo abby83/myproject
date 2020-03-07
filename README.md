@@ -10,8 +10,9 @@ Platform Setup
 2) To clone the application into server root path(if using xampp then under htdocs folder) use the below Github link
         https://github.com/abby83/myproject.git
 3) Once the application has been cloned into server root path please run the below commands from cli from root path
-        (i) php bin/console doctrine:schema:create  // This will create all schemas used into the application
-        (ii) php bin/console make:fixtures:load     // this will load one default user for authentication
+		(i)   composer install                         //Install all the vendors bundles mentioned in composer.json(required for this application)
+        (ii)  php bin/console doctrine:schema:create  // This will create all schemas used into the application
+        (iii) php bin/console make:fixtures:load     // this will load one default user for authentication
 
 4) Username: admin
    password: admin@123
