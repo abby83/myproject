@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login Page!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 14px/1.5 sans-serif; border:1px solid #eee; height:240px}
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .error {
+        color:red; 
+        font-size: 12px;
+        text-align: center;
+        width: 68%;
+        display: block;
+        margin: auto;
+        }
+    .page-header {
+        margin: 0 auto 40px;
+        padding: 20px 11px;
+        position: relative;
+        background-color: #021740;
+        border: 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        font-size: 21px;
+        align: center;
+        color: #fff;
+    }
+    .form-element {
+        width: 55%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding: 0 0 0 12%;
+    }
+    .form-element button {
+        background-color:#0d3075; 
+        color: white;text-decoration: none;
+        display: inline-block;
+        border: none;
+        width: 85px;
+        height: 25px;
+        
+        }
+    .form-element input {
+        width: 55%;
+        height: 25px;
+        margin:3px;
+    }
+</style>
+
+<div class="example-wrapper">
+    <h1 class="page-header">User Authentication</h1>
+
+    <div class="form-element">
+    {% if error %}
+        <span class="error">{{ error.messageKey }}</span>
+    {% endif %}
+        <form action="{{ path('login') }}" method="POST">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" name="_username" value="{{ lastusername }}" placeholder="Username...">
+            </div>
+            <div>
+                <label for="password">Password&nbsp;</label>
+                <input type="password" name="_password">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+   
+</div>
+{% endblock %}

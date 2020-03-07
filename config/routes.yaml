@@ -1,0 +1,7 @@
+# index:
+    # path: /
+    # controller: App\Controller\BookspublishController::index
+list:
+    path: /
+    controller: App\Controller\BookspublishController::booklisting
+    

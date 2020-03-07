@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Published Books Details!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 14px/1.5 sans-serif; border:1px solid #eee; min-height:300px}
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+	h1 {
+        margin: 0 auto 40px;
+        padding: 20px 11px;
+        position: relative;
+        background-color: #021740;
+        border: 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        font-size: 21px;
+        align: center;
+        color: #fff;
+    }
+    .header-page div {
+        display: block;
+        float: right;
+        margin: -85px 11px 0px 0px;
+        color: #fff;
+    }
+    .header-page div a {
+        color: #fff;
+        font-size: 14px;
+        position: relative;
+    }
+    .innerbody {
+        width: 95%;
+        margin: 14px;
+    }
+    button {
+        background-color:#0d3075; 
+        color: white;text-decoration: none;
+        display: inline-block;
+        border: none;
+        width: 85px;
+        height: 25px;
+        margin: 7px 0 0 1px;
+        }
+    
+     form input, {
+        width: 45%;
+        height: 20px;
+    }
+    table {width:85%}
+    .back-link a{
+        text-decoration: none;
+        margin: 0px 0px 0px 6px;
+    }
+</style>
+
+<div class="example-wrapper">
+    
+    <div class="header-page">
+        <h1>Add Book Details</h1>
+        <div><a href="{{ path('logout') }}">Logout</a></div>
+    </div>
+
+	<div class="innerbody">
+    <span class="back-link"><a href="{{ path('listing') }}"><< Go Back</a></span>
+	{{form_start(form_data)}}
+        <table>
+            <tr>
+                <td>{{ form_label(form_data.title) }}</td>
+                <td>{{ form_widget(form_data.title) }}</td>
+            </tr>
+             <tr>
+                <td>{{ form_label(form_data.author) }}</td>
+                <td>{{ form_widget(form_data.author) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form_data.publish_date) }}</td>
+                <td>{{ form_widget(form_data.publish_date) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form_data.publisher_name) }}</td>
+                <td>{{ form_widget(form_data.publisher_name) }}</td>
+            </tr>
+        </table>
+	{{form_end(form_data)}}
+	</div>
+</div>
+{% endblock %}

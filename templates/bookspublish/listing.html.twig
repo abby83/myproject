@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ controller_name }}!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 14px/1.5 sans-serif; border:1px solid #eee; min-height:240px}
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+	h1 {
+        margin: 0 auto 40px;
+        padding: 20px 11px;
+        position: relative;
+        background-color: #021740;
+        border: 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        font-size: 21px;
+        align: center;
+        color: #fff;
+    }
+    .header-page div {
+        display: block;
+        float: right;
+        margin: -85px 11px 0px 0px;
+        color: #fff;
+    }
+    .header-page div a {
+        color: #fff;
+        font-size: 14px;
+        position: relative;
+    }
+    table {
+        border-collapse: collapse;
+        width: 95%;
+        margin: 19px;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+    .btn-light {
+        border: 1px solid;
+        width: 77px;
+        height: 25px;
+        margin: 20px;
+        background-color: #;
+        background-color: #0d3075;
+    }
+    .btn-light a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 0px 0px 3px;
+        font-size: 12px;
+        padding: 6px;
+    }
+</style>
+
+<div class="example-wrapper">
+    <div class="header-page">
+        <h1>Books</h1>
+        <div><a href="{{ path('logout') }}">Logout</a></div>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Actions</th>
+            <tr>
+        
+        {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>
+                    <a href="{{ path('deletebook', {'id':book.id}) }}">Delete</a>
+                    |
+                    <a href="{{ path('editbook', {'id':book.id}) }}">Edit</a>
+                </td>
+                
+            </tr>
+        {% endfor %}
+
+        </table>
+	</div>
+        <div class="btn btn-light"><a href="{{ path('bookspublish') }}">Add Books</a></div>
+    </div>
+</div>
+{% endblock %}
